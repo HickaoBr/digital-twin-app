@@ -1,123 +1,86 @@
-# Digital Twin Full Stack Application
+# 📱 Digital Twin - Entrega 2
 
-Este projeto é uma aplicação completa de Digital Twin (Gêmeo Digital) desenvolvida com Spring Boot no backend e React Native no frontend.
+## 🚀 Como executar o projeto
+✅ Pré-requisitos
+Java 21
 
-## 📁 Estrutura do Projeto
+Maven 3.9+
 
-```
-digital-twin-project/
-├── backend/              # Spring Boot API
-│   ├── src/
-│   ├── pom.xml
-│   └── README.md
-└── frontend/             # React Native App
-    ├── src/
-    ├── package.json
-    └── README.md
-```
+Postman ou ferramenta similar (para testar a API)
 
-## 🚀 Tecnologias Utilizadas
+(Opcional) Frontend configurado
 
-### Backend (Spring Boot)
-- **Java 17+**
-- **Spring Boot 3.5.0**
-- **Spring Data JPA**
-- **H2 Database** (persistência em arquivo)
-- **CORS** configurado para integração com frontend
-- **Maven** para gerenciamento de dependências
+--- 
 
-### Frontend (React Native)
-- **React Native** com Expo
-- **TypeScript**
-- **React Navigation** para navegação
-- **Victory Native** para gráficos
-- **AsyncStorage** para persistência local
-- **Fetch API** para comunicação com backend
+## 🧱 Como Rodar:
 
-## 🌟 Funcionalidades
+- Baixe o arquivo.zip (entrega-2)
+- Abra no inteliJ
+- Rode o arquivo DigitalTwinAppApplication
 
-### Backend API
-- ✅ **GET /api/readings** - Lista todas as leituras
-- ✅ **POST /api/readings** - Cadastra nova leitura
-- ✅ **GET /api/readings/{sensorId}** - Busca leituras por sensor
-- ✅ **CORS habilitado** para chamadas externas
-- ✅ **Persistência H2** funcionando
-- ✅ **Valores mockados** baseados no tipo do sensor
+--- 
 
-### Frontend Mobile
-- ✅ **Lista de Sensores** com dados reais do backend
-- ✅ **Tela de Configuração** para alterar URL da API
-- ✅ **Detalhes do Sensor** com histórico e gráficos
-- ✅ **Loading spinners** durante carregamento
-- ✅ **Fallback offline** quando backend indisponível
-- ✅ **Botões para atualizar** e **registrar leituras**
+## 🗃️ Localização do Arquivo H2:
+data/readings.mv.db
 
-## 🔧 Como Executar
+--- 
 
-### Backend
-```bash
-cd backend
-./mvnw spring-boot:run
-```
-O servidor estará disponível em: `http://localhost:8080`
+## 🌐 Endpoints disponíveis:
 
-### Frontend
-```bash
-cd frontend
-npm install
-npm start
-```
+| Método | Endpoint                          | Descrição                           |
+| ------ | --------------------------------- | ----------------------------------- |
+| GET    | `/api/readings`                   | Lista todas as leituras registradas |
+| GET    | `/api/readings/sensor/{sensorId}` | Lista leituras por ID do sensor     |
+| POST   | `/api/readings`                   | Registra uma nova leitura           |
 
-### Configuração da Integração
-1. Inicie o backend na porta 8080
-2. No app móvel, vá em **Configurações**
-3. Configure a URL: `http://SEU_IP:8080` (substitua SEU_IP pelo IP da máquina)
-4. Para emulador Android: `http://10.0.2.2:8080`
-5. Para simulador iOS: `http://localhost:8080`
+--- 
+## 📡 Exemplo de requisição curl
 
-## 📱 Testando a Integração
-
-### Usando cURL
-```bash
-# Listar leituras
-curl http://localhost:8080/api/readings
-
-# Criar nova leitura
 curl -X POST http://localhost:8080/api/readings \
-  -H "Content-Type: application/json" \
-  -d '{"sensorId": "1"}'
-```
-
-### Usando Postman
-- **GET** `http://localhost:8080/api/readings`
-- **POST** `http://localhost:8080/api/readings` com body JSON:
-  ```json
-  {
-    "sensorId": "1"
-  }
-  ```
-
-## 🔗 Integração Backend/Frontend
-
-A aplicação está totalmente integrada:
-- Frontend faz requisições reais para o backend
-- Sistema de fallback para quando backend está offline  
-- Configuração dinâmica da URL da API
-- Tratamento de erros e loading states
-- Dados persistem no banco H2 do backend
-
-## 📊 Console H2
-
-Para acessar o console do banco de dados:
-- URL: `http://localhost:8080/h2-console`
-- JDBC URL: `jdbc:h2:file:./data/readings`
-- Username: `sa`
-- Password: (vazio)
-
-## 🤝 Contribuindo
-
-Este projeto foi desenvolvido como parte de um sprint de desenvolvimento full-stack, demonstrando a integração completa entre backend Spring Boot e frontend React Native.
+-H "Content-Type: application/json" \
+-d '{
+  "sensorId": "sensor-01",
+  "value": 22.5,
+  "timestamp": "2025-06-17T14:30:00"
+}'
 
 ---
 
-**Projeto Digital Twin - Sprint 3** 🚀
+## Testes no Postman:
+
+### **GET:**
+![image](https://github.com/user-attachments/assets/7c7f1c7d-8c87-4e86-854f-94bbf2b4e324)
+
+
+### **POST:**
+![image](https://github.com/user-attachments/assets/e6abc392-d3b5-4f3b-9ffb-22536d51707e)
+
+
+--- 
+
+## Para testes com o frontend:
+- Baixar o arquivo.zip (main) 
+- Rodar o Backend
+- rodar o ipconfig no terminal e colocar o Endereço iPv4 por exemplo: 192.168.0.105
+- Abrir o arquivo api/readinsg.js
+- colocar seu endereço iPv4 aqui:
+
+  **const API_URL = 'http://SEU-ENDEREÇO-IPV4:8080/api'**;
+- Rodar o frontend com nxp expo start
+- com o Backend rodando basta clickar em "começar"
+- para atualizar dados dos sensores clickar em "Atualizar dados" que além de gerar novos dados também salva os dados atuais no histórico
+  
+
+---
+
+## 👥 Integrantes
+
+Humberto Martins |	RM: 551602
+
+Gustavo Della Rocca |  RM: 551595
+
+Maria Eduarda Paranhos |  RM: 98138
+
+Rodrigo Cordeiro | RM: 97808
+
+Eduardo Alves | RM: 98016
