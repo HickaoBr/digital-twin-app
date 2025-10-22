@@ -1,0 +1,26 @@
+[
+  {
+    "id": "1",
+    "nome": "Sensor de Pressão",
+    "valor": "3.25",
+    "status": "OK"
+  },
+  {
+    "id": "2", 
+    "nome": "Sensor Magnético",
+    "valor": "1",
+    "status": "OK"
+  },
+  {
+    "id": "3",
+    "nome": "Sensor Indutivo", 
+    "valor": "0",
+    "status": "OK"
+  },
+  {
+    "id": "123",
+    "nome": "Sensor de Teste",
+    "valor": "2.87",
+    "status": "OK"
+  }
+]
