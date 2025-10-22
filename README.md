@@ -22,17 +22,13 @@ docker-compose up -d
 # Abra no inteliJ
 Rode o arquivo DigitalTwinAppApplication
 
-# OU :
+## OU :
 mvn spring-boot:run
 
 ### **Frontend (React Native + Expo)**
 
 # Instalar dependências
 npm install
-
-# Configurar URL da API
-# Abrir frontend/src/utils/api/apiUrl.js
-# Inserir seu IPv4 (obter com 'ipconfig' no terminal)
 
 # Executar o app
 npx expo start
